@@ -3,21 +3,40 @@
     <h5 class="page-header">Ürünler</h5>
   </div>
 
-  <div class="col-lg-12 ">
-    <div class=" alert alert-success " *ngIf="addedProduct">
-      {{addedProduct}} added to cart!
-    </div>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let product of productResult">
-        <button (click)="addToCard(product)" type="button" class="btn btn-sm btn-primary float-right">
-          Sepete ekle
-          <i class="fas fa-shopping-cart"></i>
-        </button>
 
-        <h5>{{product.productName}}</h5>
-        <p>{{product.quantityPerUnit}}</p>
-        <h6>{{product.unitPrice}}</h6>
+  <div class="col">
+    <input class="form-control" type="text" placeholder="type something..." [(ngModel)]="filterText">
+  </div>
+
+  <div class="col" *ngIf=filterText>
+    <b>{{filterText}}</b> için arama yaptınız.
+  </div>
+
+  <div class="col mt-3">
+    <ul class="list-group">
+      <li *ngFor="let product of products | filter" class="list-group-item">
       </li>
     </ul>
   </div>
-</div>
+        <div class="col-lg-12 ">
+          <div class=" alert alert-success " *ngIf="addedProduct">
+            {{addedProduct}} added to cart!
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let product of productResult">
+              <button (click)="addToCard(product)" type="button" class="btn btn-sm btn-primary float-right">
+                Sepete ekle
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+
+              <h5>{{product.productName}}</h5>
+              <p>{{product.quantityPerUnit}}</p>
+              <h6>{{product.unitPrice}}</h6>
+              <span>
+        <b>KDV'li tutar:</b>
+        ({{product.unitPrice | kdv:100 | currency:'USD': true}})
+      </span>
+            </li>
+          </ul>
+        </div>
+  </div>

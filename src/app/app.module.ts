@@ -9,6 +9,10 @@ import {ProductService} from './product.service';
 import {CartComponent} from './cart/cart.component';
 import {CartService} from './cart.service';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
+import { KdvPipe } from './product/pipe/kdv.pipe';
+import { FilterPipe } from './product/pipe/filter.pipe';
+import {FormsModule} from '@angular/forms';
+
 
 
 @NgModule({
@@ -16,12 +20,15 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
     AppComponent,
     ProductComponent,
     CartComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    KdvPipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     {

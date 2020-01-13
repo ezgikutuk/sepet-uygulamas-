@@ -3,6 +3,7 @@ import {ProductService} from '../product.service';
 import {Product} from './product';
 import {CartService} from '../cart.service';
 
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -20,6 +21,7 @@ export class ProductComponent implements OnInit {
   productResult: any;
   loading: boolean = true;
   addedProduct: string;
+  filterText: Product[];
 
   addToCard(product: Product) {
     this.addedProduct = product.productName;

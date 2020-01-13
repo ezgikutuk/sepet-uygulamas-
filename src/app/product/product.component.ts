@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit {
   productResult: any;
   loading: boolean = true;
   addedProduct: string;
-  filterText: Product[];
+  filterText:string;
 
   addToCard(product: Product) {
     this.addedProduct = product.productName;

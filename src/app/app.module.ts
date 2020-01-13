@@ -12,7 +12,8 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import { KdvPipe } from './product/pipe/kdv.pipe';
 import { FilterPipe } from './product/pipe/filter.pipe';
 import {FormsModule} from '@angular/forms';
-
+import { CategoryComponent } from './category/category.component';
+import { CategoryService } from './category.service';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {FormsModule} from '@angular/forms';
     CartSummaryComponent,
     KdvPipe,
     FilterPipe,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {FormsModule} from '@angular/forms';
     {
       provide: 'apiUrl',
       useValue: 'http://northwindapi.azurewebsites.net/api'
-    }, CartService
+    }, CartService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

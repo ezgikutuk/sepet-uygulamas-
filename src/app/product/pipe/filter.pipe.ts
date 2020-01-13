@@ -7,10 +7,10 @@ import {Product} from '../product';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: Product[], filterText: string): Product[] {
+  transform(value: Product[], filterText?: string): Product[] {
+// Adım 2
     filterText = filterText ? filterText.toLocaleLowerCase() : null;
-    // tslint:disable-next-line:triple-equals no-non-null-assertion
-    return filterText ? value.filter((p: Product) => p.productName.toLocaleLowerCase().indexOf(filterText) ! == -1) : value ;
+    return filterText ? value.filter((p: Product) => p.productName.toLocaleLowerCase().indexOf(filterText) !== -1) : value;
   }
 
 }
